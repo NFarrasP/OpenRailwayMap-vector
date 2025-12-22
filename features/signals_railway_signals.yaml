@@ -5298,6 +5298,153 @@ features:
       - { tag: 'railway:signal:crossing', value: 'GB-NR:crossing' }
       - { tag: 'railway:signal:crossing:form', value: 'light' }
 
+  # --- ID --- #
+
+  - description: main light signals (3 aspects)
+    country: ID
+    icon: [ default: 'id/main_light_three_aspects' ]
+    tags:
+      - { tag: 'railway:signal:main', value: 'ID-KAI' }
+      - { tag: 'railway:signal:main:form', value: 'light' }
+      - { tag: 'railway:signal:main:states', value: 'ID-KAI:5;ID-KAI:6;ID-KAI:7' }
+
+  - description: main light signals (2 aspects)
+    country: ID
+    icon: [ default: 'id/main_light_two_aspects' ]
+    tags:
+      - { tag: 'railway:signal:main', value: 'ID-KAI' }
+      - { tag: 'railway:signal:main:form', value: 'light' }
+      - { tag: 'railway:signal:main:states', value: 'ID-KAI:6;ID-KAI:7' }
+
+  - description: main semaphore signals (single arm)
+    country: ID
+    icon: [ default: 'id/main_semaphore_single_arm' ]
+    tags:
+      - { tag: 'railway:signal:main', value: 'ID-KAI' }
+      - { tag: 'railway:signal:main:form', value: 'semaphore' }
+      - { tag: 'railway:signal:main:states', value: 'ID-KAI:5;ID-KAI:7' }
+
+  - description: main semaphore signals (double arms)
+    country: ID
+    icon: [ default: 'id/main_semaphore_double_arm' ]
+    tags:
+      - { tag: 'railway:signal:main', value: 'ID-KAI' }
+      - { tag: 'railway:signal:main:form', value: 'semaphore' }
+      - { tag: 'railway:signal:main:states', value: 'ID-KAI:5;ID-KAI:6;ID-KAI:7' }
+
+  - description: main light signals for left track
+    country: ID
+    icon: [ default: 'id/distant_light_left' ]
+    tags:
+      - { tag: 'railway:signal:distant', value: 'ID-KAI' }
+      - { tag: 'railway:signal:distant:form', value: 'light' }
+      - { tag: 'railway:signal:distant:states', value: 'ID-KAI:8D' }
+
+  - description: main sign signals for left track
+    country: ID
+    icon: [ default: 'id/distant_sign_left' ]
+    tags:
+      - { tag: 'railway:signal:distant', value: 'ID-KAI' }
+      - { tag: 'railway:signal:distant:form', value: 'sign' }
+      - { tag: 'railway:signal:distant:states', value: 'ID-KAI:8D' }
+
+  - description: distant light signals
+    country: ID
+    icon: [ default: 'id/distant_light' ]
+    tags:
+      - { tag: 'railway:signal:distant', value: 'ID-KAI' }
+      - { tag: 'railway:signal:distant:form', value: 'light' }
+      - { tag: 'railway:signal:distant:states', value: 'ID-KAI:9A1;ID-KAI:9A2' }
+
+  - description: distant semaphore signals
+    country: ID
+    icon: [ default: 'id/distant_semaphore' ]
+    tags:
+      - { tag: 'railway:signal:distant', value: 'ID-KAI' }
+      - { tag: 'railway:signal:distant:form', value: 'semaphore' }
+      - { tag: 'railway:signal:distant:states', value: 'ID-KAI:9A1;ID-KAI:9A2' }
+
+  - description: distant light signals for left track
+    country: ID
+    icon: [ default: 'id/distant_light_left' ]
+    tags:
+      - { tag: 'railway:signal:distant', value: 'ID-KAI' }
+      - { tag: 'railway:signal:distant:form', value: 'light' }
+      - { tag: 'railway:signal:distant:states', value: 'ID-KAI:8C' }
+
+  - description: distant sign signals for left track
+    country: ID
+    icon: [ default: 'id/distant_sign_left' ]
+    tags:
+      - { tag: 'railway:signal:distant', value: 'ID-KAI' }
+      - { tag: 'railway:signal:distant:form', value: 'sign' }
+      - { tag: 'railway:signal:distant:states', value: 'ID-KAI:8C' }
+      
+  - description: wrong road signal
+    country: ID
+    icon: [ default: 'id/wrong_road' ]
+    tags:
+      - { tag: 'railway:signal:wrong_road', value: 'ID-KAI' }
+      - { tag: 'railway:signal:wrong_road:form', value: 'sign' }
+      - { tag: 'railway:signal:wrong_road:states', value: 'ID-KAI:9H' }
+
+  - description: light shunting signals
+    country: ID
+    icon: [ default: 'id/light_shunting' ]
+    tags:
+      - { tag: 'railway:signal:shunting', value: 'ID-KAI' }
+      - { tag: 'railway:signal:shunting:form', value: 'light' }
+
+  - description: light repeater signal
+    country: ID
+    icon: [ default: 'id/light_repeater' ]
+    tags:
+      - { tag: 'railway:signal:main_repeated', value: 'ID-KAI' }
+      - { tag: 'railway:signal:main_repeated:form', value: 'light' }
+
+  - description: stop board
+    country: ID
+    icon: [ default: 'id/stop_board' ]
+    tags:
+      - { tag: 'railway:signal:stop', value: 'ID-KAI' }
+
+  - description: horn signal
+    country: ID
+    icon: [ default: 'id/horn' ]
+    tags:
+      - { tag: 'railway:signal:whistle', value: 'ID-KAI' }
+      - { tag: 'railway:signal:whistle:form', value: 'sign' }
+      - { tag: 'railway:signal:whistle:states', value: 'ID-KAI:8K' }
+
+  - description: radio frequency change
+    country: ID
+    icon:
+      - match: 'railway:signal:radio:frequency'
+        cases:
+          - { regex: '^([1-9])$', value: 'id/radio-{}', example: 'id/radio-{1}' }
+        default: 'id/radio-{1}'
+    tags:
+      - { tag: 'railway:signal:radio', value: 'ID-KAI' }
+      - { tag: 'railway:signal:radio:form', value: 'sign' }
+
+  - description: start of electrified line
+    country: ID
+    icon: [ default: 'id/electrified_start' ]
+    tags:
+      - { tag: 'railway:signal:electricity', value: 'ID-KAI' }
+      - { tag: 'railway:signal:electricity:form', value: 'sign' }
+      - { tag: 'railway:signal:electricity:type', value: 'power_on' }
+      - { tag: 'railway:signal:electricity:states', value: 'ID-KAI:8M' }
+
+  - description: end of electrified line
+    country: ID
+    icon: [ default: 'id/electrified_end' ]
+    tags:
+      - { tag: 'railway:signal:electricity', value: 'ID-KAI' }
+      - { tag: 'railway:signal:electricity:form', value: 'sign' }
+      - { tag: 'railway:signal:electricity:type', value: 'power_off' }
+      - { tag: 'railway:signal:electricity:states', value: 'ID-KAI:8N' }
+
   # --- IT --- #
 
   - description: Route
