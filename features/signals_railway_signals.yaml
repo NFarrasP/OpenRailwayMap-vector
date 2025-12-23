@@ -5298,6 +5298,32 @@ features:
       - { tag: 'railway:signal:crossing', value: 'GB-NR:crossing' }
       - { tag: 'railway:signal:crossing:form', value: 'light' }
 
+  # --- ID --- #
+
+  - description: main light signal (2 aspects)
+    country: ID
+    icon:
+      - match: 'railway:signal:speed_limit:speed'
+        cases:
+          - { regex: '^[1-8]$', value: 'id/main_light_two_aspects_{}', example: 'it/main_light_two_aspects_{3}' }
+        default: 'id/main_light_two_aspects'
+    tags:
+      - { tag: 'railway:signal:main', value: 'ID-KAI' }
+      - { tag: 'railway:signal:main:form', value: 'light' }
+      - { tag: 'railway:signal:main:states', value: 'ID-KAI:6;ID-KAI:7' }
+
+  - description: main light signal (3 aspects)
+    country: ID
+    icon:
+      - match: 'railway:signal:speed_limit:speed'
+        cases:
+          - { regex: '^[1-8]$', value: 'id/main_light_three_aspects_{}', example: 'it/main_light_two_aspects_{3}' }
+        default: 'id/main_light_three_aspects'
+    tags:
+      - { tag: 'railway:signal:main', value: 'ID-KAI' }
+      - { tag: 'railway:signal:main:form', value: 'light' }
+      - { tag: 'railway:signal:main:states', value: 'ID-KAI:5;ID-KAI:6;ID-KAI:7' }
+
   # --- IT --- #
 
   - description: Route
