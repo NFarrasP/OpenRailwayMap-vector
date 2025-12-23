@@ -5299,65 +5299,107 @@ features:
       - { tag: 'railway:signal:crossing:form', value: 'light' }
 
   # --- ID --- #
-
-  - description: main entry light signal (2 aspects)
+  
+  - description: main signal with route indication
     country: ID
     icon:
-      - match: 'railway:signal:speed_limit:speed'
+      - match: 'railway:signal:main:states'
         cases:
-          - { regex: '^(10|20|30|40|50|60|70|80)$', value: 'id/main_light_two_aspects_{}', example: 'id/main_light_two_aspects_{30}' }
-        default: 'id/main_light_two_aspects'
+          - { all:  ['ID-KAI:5', 'ID-KAI:6', 'ID-KAI:7'], value: 'id/main_light_3', description: 'three aspects' }
+          - { all:  ['ID-KAI:5', 'ID-KAI:7'], value: 'id/main_light_2', description: 'two aspects' }
+        default: 'id/main_light_3'
+      - match: 'railway:signal:speed_limit:form'
+        cases:
+          - { exact:  'light', value: 'id/route_speed_light', description: 'indication of route and light speed limit' }
+          - { exact:  'sign', value: 'id/route_speed_sign', description: 'indication of route and sign speed limit' }
+        default: 'id/route_speed_light'
+        position: 'top'
+      - match: 'railway:signal:shunting'
+        cases:
+          - { exact: 'ID-KAI', value: 'id/shunting_emergency', description: 'shunting signal with emergency aspect for the main signal' }
+        default: 'id/emergency'
+        position: 'bottom'
     tags:
       - { tag: 'railway:signal:main', value: 'ID-KAI' }
       - { tag: 'railway:signal:main:form', value: 'light' }
-      - { tag: 'railway:signal:main:function', value: 'entry' }
-      - { tag: 'railway:signal:main:states', value: 'ID-KAI:6;ID-KAI:7' }
+      - { tag: 'railway:signal:route', value: 'ID-KAI' }
+      - { tag: 'railway:signal:route:form', value: 'light' }
 
-  - description: main entry light signal (3 aspects)
+  - description: main signal with wrong route indication
     country: ID
     icon:
-      - match: 'railway:signal:speed_limit:speed'
+      - match: 'railway:signal:main:states'
         cases:
-          - { regex: '(10|20|30|40|50|60|70|80)$', value: 'id/main_light_three_aspects_{}', example: 'id/main_light_two_aspects_{30}' }
-        default: 'id/main_light_three_aspects'
+          - { all:  ['ID-KAI:5', 'ID-KAI:6', 'ID-KAI:7'], value: 'id/main_light_3', description: 'three aspects' }
+          - { all:  ['ID-KAI:5', 'ID-KAI:7'], value: 'id/main_light_2', description: 'two aspects' }
+        default: 'id/main_light_3'
+      - match: 'railway:signal:speed_limit:form'
+        cases:
+          - { exact:  'sign', value: 'id/speed_sign_wrong_road', description: 'indication of wrong road and sign speed limit' }
+        position: 'top'
+      - match: 'railway:signal:shunting'
+        cases:
+          - { exact: 'ID-KAI', value: 'id/shunting_emergency', description: 'shunting signal with emergency aspect for the main signal' }
+        default: 'id/emergency'
+        position: 'bottom'
     tags:
       - { tag: 'railway:signal:main', value: 'ID-KAI' }
       - { tag: 'railway:signal:main:form', value: 'light' }
-      - { tag: 'railway:signal:main:function', value: 'entry' }
-      - { tag: 'railway:signal:main:states', value: 'ID-KAI:5;ID-KAI:6;ID-KAI:7' }
+      - { tag: 'railway:signal:wrong_road', value: 'ID-KAI' }
+      - { tag: 'railway:signal:wrong_road:form', value: 'light' }
 
-  - description: main exit light signal (3 aspects)
+  - description: general main light signal
     country: ID
     icon:
-      - match: 'railway:signal:speed_limit:speed'
+      - match: 'railway:signal:main:states'
         cases:
-          - { regex: '(10|20|30|40|50|60|70|80)$', value: 'id/main_light_three_aspects_{}', example: 'id/main_light_two_aspects_{30}' }
-        default: 'id/main_light_three_aspects'
+          - { all:  ['ID-KAI:5', 'ID-KAI:6', 'ID-KAI:7'], value: 'id/main_light_3', description: 'three aspects' }
+          - { all:  ['ID-KAI:5', 'ID-KAI:7'], value: 'id/main_light_2', description: 'two aspects' }
+          - { all:  ['ID-KAI:8D'], value: 'id/main_light_left_track', description: 'single aspect for left track' }
+        default: 'id/main_light_3'
+      - match: 'railway:signal:speed_limit:form'
+        cases:
+          - { exact:  'sign', value: 'id/speed_sign', description: 'indication of wrong road and sign speed limit' }
+          - { exact:  'light', value: 'id/speed_light', description: 'indication of wrong road and light speed limit' }
+        position: 'top'
+      - match: 'railway:signal:shunting'
+        cases:
+          - { exact: 'ID-KAI', value: 'id/shunting_emergency', description: 'shunting signal with emergency aspect for the main signal' }
+        default: 'id/emergency'
+        position: 'bottom'
     tags:
       - { tag: 'railway:signal:main', value: 'ID-KAI' }
       - { tag: 'railway:signal:main:form', value: 'light' }
-      - { tag: 'railway:signal:main:function', value: 'exit' }
-      - { tag: 'railway:signal:main:states', value: 'ID-KAI:5;ID-KAI:6;ID-KAI:7' }
 
-  - description: main semaphore signal (single arm)
+  - description: main semaphore signal
     country: ID
-    icon: [ default: 'id/main_semaphore_single_arm' ]
+    icon:
+      - match: 'railway:signal:main:states'
+        cases:
+          - { all:  ['ID-KAI:5', 'ID-KAI:6', 'ID-KAI:7'], value: 'id/main_semaphore_2', description: 'double arm semaphore' }
+          - { all:  ['ID-KAI:5', 'ID-KAI:7'], value: 'id/main_semaphore_1', description: 'single arm semaphore' }
     tags:
       - { tag: 'railway:signal:main', value: 'ID-KAI' }
       - { tag: 'railway:signal:main:form', value: 'semaphore' }
-      - { tag: 'railway:signal:main:states', value: 'ID-KAI:5;ID-KAI:7' }
-
-  - description: main semaphore signal (double arm)
-    country: ID
-    icon: [ default: 'id/main_semaphore_double_arm' ]
-    tags:
-      - { tag: 'railway:signal:main', value: 'ID-KAI' }
-      - { tag: 'railway:signal:main:form', value: 'semaphore' }
-      - { tag: 'railway:signal:main:states', value: 'ID-KAI:5;ID-KAI:6;ID-KAI:7' }
 
   - description: distant light signal
     country: ID
-    icon: [ default: 'id/distant_light' ]
+    icon:
+      - match: 'railway:signal:distant:states'
+        cases:
+          - { all:  ['ID-KAI:9A1', 'ID-KAI:9A2'], value: 'id/distant_light', description: 'distant light signal' }
+          - { all:  ['ID-KAI:5', 'ID-KAI:7'], value: 'id/main_light_2', description: 'two aspects' }
+        default: 'id/main_light_3'
+      - match: 'railway:signal:speed_limit:form'
+        cases:
+          - { exact:  'sign', value: 'id/speed_sign', description: 'indication of wrong road and sign speed limit' }
+          - { exact:  'light', value: 'id/speed_light', description: 'indication of wrong road and light speed limit' }
+        position: 'top'
+      - match: 'railway:signal:shunting'
+        cases:
+          - { exact: 'ID-KAI', value: 'id/shunting_emergency', description: 'shunting signal with emergency aspect for the main signal' }
+        default: 'id/emergency'
+        position: 'bottom'
     tags:
       - { tag: 'railway:signal:distant', value: 'ID-KAI' }
       - { tag: 'railway:signal:distant:form', value: 'light' }
@@ -5369,7 +5411,6 @@ features:
     tags:
       - { tag: 'railway:signal:distant', value: 'ID-KAI' }
       - { tag: 'railway:signal:distant:form', value: 'semaphore' }
-      - { tag: 'railway:signal:distant:states', value: 'ID-KAI:9A1;ID-KAI:9A2' }
 
   - description: main block light signal
     country: ID
